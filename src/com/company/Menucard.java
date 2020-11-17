@@ -117,7 +117,7 @@ public class Menucard {
     // VIS MENU
     public void showMenuCard(){
         System.out.println("***************************************");
-        System.out.println("************* Pizza MENU **************");
+        System.out.println("**************** PIZZA ****************");
 
         for (Pizza pizza : menuCard) {
             System.out.print(pizza.nr + ". ");

@@ -55,6 +55,12 @@ public class Input {
         }
         return ints;
     }
+    private static String replaceComma(String s) {
+        while (s.contains("  ")) {
+            s = s.replace("  ", " ");
+        }
+        return s;
+    }
 
     private static String replaceSpace(String s) {
         while (s.contains("  ")) {
