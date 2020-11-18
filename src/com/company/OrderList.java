@@ -26,4 +26,17 @@ public class OrderList {
     public int getTotalNumberOfOrders(){
         return orderList.size();
     }
+    public void showOrders() {
+        for (Order order : orderList) {
+            System.out.println(order.getPizzaNo() + ", " +
+                    order.getAmount() + ", " +
+                    //order.getPrice() + ", " +
+                    Input.getMinutesToTimeFormat(order.getPickupTime()) + ", " +
+                    order.getOrderTime() + ", " +
+                    order.getCustomerName() + ", "
+                   // order.getPhoneNo() + ", " +
+                    // order.getStatus()
+            );
+        }
+    }
 }

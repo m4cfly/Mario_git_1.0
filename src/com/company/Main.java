@@ -1,25 +1,26 @@
 package com.company;
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class Main {
+
     private final static boolean execute = true;
-
     public static void main(String[] args) throws IOException {
+
         Menucard menuCard = new Menucard();
-        System.out.println("************************************");
-        System.out.println("******* VELKOMMEN TIL MARIO's ******");
-        System.out.println("************ PIZZA BAR *************");
-        System.out.println("           Vis Menukort      [1]    ");
-        System.out.println("           Indtast ordre     [2]    ");
-        System.out.println("         Vis bestillinger    [3]    ");
-        System.out.println("         Fjern bestilling    [4]    ");
-        System.out.println("            Gem Ordre        [5]    ");
-
-
+        OrderList orderList = new OrderList();
 
 
         while (execute) {
+            System.out.println("           Vis Menukort      [1]    ");
+            System.out.println("           Indtast ordre     [2]    ");
+            System.out.println("         Vis bestillinger    [3]    ");
+            System.out.println("         Fjern bestilling    [4]    ");
+            System.out.println("            Gem Ordre        [5]    ");
+
+
             Scanner scanNavn = new Scanner(System.in);
             int choose = scanNavn.nextInt();
 
@@ -27,39 +28,39 @@ public class Main {
             //switch
             switch (choose) {
                 case 1:
+                    try{
                     // vis menu
                     menuCard.readPizzasFromFile("menucard.txt");
-                    menuCard.showMenuCard();
-
-                    try{
 
                     }catch (Exception e){
                         System.out.println("Menukort kunne ikke findes.");
                     }
+
+                    menuCard.showMenuCard();
+
                     break;
 
                 case 2:
                     // TILFØJ TIL PIZZAER
-                    System.out.println(Input.getString("Opret en Ordre: "));
-                    Writer wr = new FileWriter("bestilling.txt");
-                    wr.write("bestilling:");
-                    wr.flush();
-                    wr.close();
-
-                    Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
+                    orderList.addOrder(new Order(
+                            Input.getInt("Pizza nummer: "),
+                            Input.getInt("Antal: "),
+                            Input.getTimeInMinutes("Hvornår skal pizzaen hentes mand?: "),
+                            Input.getString("Hvad dælen hedder? du din gavtyv?: "),
+                            Input.getString("Telefon Nummer Lord hr sir.?: ")));
 
                     //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
-                    menuCard.savePizzaToFile("Bestilling.txt");
-                    menuCard.addPizza(gringo);
+                    //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
+                    //menuCard.savePizzaToFile("Bestilling.txt");
+                    //menuCard.addPizza(gringo);
 
 //                    System.out.println(Input.getString("Hvad tid?"));
 //                    int tid = Input.getTimeInMinutes("Afhentingstid: ");
 //                    Order o1 = new Order(3, 2, tid, "Jon", "22755844");
 //                    System.out.println(o1.toString());
-
                     break;
                 case 3:
-                    System.out.println(Input.getString("Se Bestillinger:"));
+                    orderList.showOrders();
                     break;
                 case 4:
                     System.out.println("Fjern Ordre");
@@ -69,7 +70,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Ingen bruger valgt. Farvel");
+                    System.out.println("QUIT: Farvel");
                     return;
             }
 

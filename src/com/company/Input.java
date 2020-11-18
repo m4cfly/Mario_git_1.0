@@ -9,6 +9,18 @@ public class Input {
         return scanner.nextLine();
     }
 
+    public static int getInt(String question) {
+        while (true) {
+            try {
+                // hvis konverterinngen lykkedes så returnere vi. Hvis det ikke lykkedes
+                // så smides der er fejl og gribes af min catch og løkken køre igenn.
+                return Integer.parseInt(Input.getString(question));
+            } catch (Exception e) {
+                System.out.println("det må ikke være et tal ord");
+            }
+        }
+    }
+
     public static String getMinutesToTimeFormat(int minutes){
         String hoursText =  String.valueOf(minutes / 60);
         String minutesText = String.valueOf(minutes % 60);
@@ -30,19 +42,6 @@ public class Input {
             }
         }
     }
-
-    public static int getInt(String question) {
-        while (true) {
-            try {
-                // hvis konverterinngen lykkedes så returnere vi. Hvis det ikke lykkedes
-                // så smides der er fejl og gribes af min catch og løkken køre igenn.
-                return Integer.parseInt(Input.getString(question));
-            } catch (Exception e) {
-                System.out.println("det må ikke være et tal ord");
-            }
-        }
-    }
-
     private static int[] textToInts(String s) {
         String[] strings = s.split(" ");
         int[] ints = new int[strings.length];
