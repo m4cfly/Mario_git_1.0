@@ -40,9 +40,7 @@ public class Pizza {
         this.ingredienser = ingredienser;
     }
 
-    public int getPris() {
-        return pris;
-    }
+    public int getPris() { return pris; }
 
     public void setPris(int pris) {
         this.pris = pris;

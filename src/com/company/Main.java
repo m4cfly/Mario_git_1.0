@@ -37,18 +37,22 @@ public class Main {
                     }
 
                     menuCard.showMenuCard();
-
                     break;
 
                 case 2:
                     // TILFØJ TIL PIZZAER
-                    orderList.addOrder(new Order(
-                            Input.getInt("Pizza nummer: "),
-                            Input.getInt("Antal: "),
-                            Input.getTimeInMinutes("Hvornår skal pizzaen hentes mand?: "),
-                            Input.getString("Hvad dælen hedder? du din gavtyv?: "),
-                            Input.getString("Telefon Nummer Lord hr sir.?: ")));
+                    try {
+                        orderList.addOrder(new Order(
+                                Input.getInt("Pizza nummer: "),
+                                Input.getInt("Pris: "),
+                                Input.getInt("Antal: "),
+                                Input.getTimeInMinutes("Hvornår skal pizzaen hentes ? / tt.mm : "),
+                                Input.getString("Hvad dælen hedder? du din gavtyv?: "),
+                                Input.getString("Telefon Nummer Lord hr sir.?: ")));
+                    }catch (Exception e){
+                        System.out.println("Fejl i indskrivningen, prøv igen");
 
+                    }
                     //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
                     //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
                     //menuCard.savePizzaToFile("Bestilling.txt");

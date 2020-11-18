@@ -4,6 +4,7 @@ import java.util.Date;
 public class Order {
 
     private int pizzaNo;
+    private int price;
     private int amount;
     private int pickupTime;
     private Date orderTime;
@@ -12,8 +13,9 @@ public class Order {
     private boolean removed;
 
 
-    public Order(int pizzaNo, int amount, int pickupTime, String customerName, String phone) {
+    public Order(int pizzaNo, int price, int amount, int pickupTime, String customerName, String phone) {
         this.pizzaNo = pizzaNo;
+        this.price = price;
         this.amount = amount;
         this.pickupTime = pickupTime;
         this.customerName = customerName;
