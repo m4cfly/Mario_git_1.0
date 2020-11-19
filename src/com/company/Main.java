@@ -6,22 +6,16 @@ import java.util.Scanner;
 
 public class Main {
 
-    private final static boolean execute = true;
+    private static boolean execute = true;
     public static void main(String[] args) throws IOException {
-
         Menucard menuCard = new Menucard();
         OrderList orderList = new OrderList();
+        Scanner scanNavn = new Scanner(System.in);
 
 
         while (execute) {
-            System.out.println("           Vis Menukort      [1]    ");
-            System.out.println("           Indtast ordre     [2]    ");
-            System.out.println("         Vis bestillinger    [3]    ");
-            System.out.println("         Fjern bestilling    [4]    ");
-            System.out.println("            Gem Ordre        [5]    ");
 
-
-            Scanner scanNavn = new Scanner(System.in);
+            visMenu();
             int choose = scanNavn.nextInt();
 
 
@@ -41,6 +35,7 @@ public class Main {
 
                 case 2:
                     // TILFØJ TIL PIZZAER
+                        //Pizza vesuvio = new Pizza(1, "Vesuvio", "Ost og Tomat", 57);
                     try {
                         orderList.addOrder(new Order(
                                 Input.getInt("Pizza nummer: "),
@@ -62,19 +57,27 @@ public class Main {
 //                    int tid = Input.getTimeInMinutes("Afhentingstid: ");
 //                    Order o1 = new Order(3, 2, tid, "Jon", "22755844");
 //                    System.out.println(o1.toString());
+                    menuCard.showMenuCard();
                     break;
                 case 3:
+                    System.out.println("********************");
+                    System.out.println("****** Ordre ******");
                     orderList.showOrders();
+                    System.out.println("********************");
                     break;
                 case 4:
                     System.out.println("Fjern Ordre");
                     break;
                 case 5:
                     System.out.println("Gem ordre");
+
+                    break;
+                case 6:
+                    System.out.println("Farvel Quit");
+                    execute = false;
                     break;
 
                 default:
-                    System.out.println("QUIT: Farvel");
                     return;
             }
 
@@ -88,7 +91,7 @@ public class Main {
 
                 // Vis: Program menu
                 // indsæt pizza
-                //Pizza vesuvio = new Pizza(1, "Vesuvio", "Ost og Tomat", 57);
+                //3Pizza vesuvio = new Pizza(1, "Vesuvio", "Ost og Tomat", 57);
 
 
                  //menuCard.addPizza(vesuvio);
@@ -112,6 +115,15 @@ public class Main {
 
 
 
+    }
+
+    private static void visMenu() {
+        System.out.println("        Vis Menukort      [1]    ");
+        System.out.println("        Indtast ordre     [2]    ");
+        System.out.println("      Vis bestillinger    [3]    ");
+        System.out.println("      Fjern bestilling    [4]    ");
+        System.out.println("         Gem Ordre        [5]    ");
+        System.out.println("         Quit/EXIT        [6]    ");
     }
 }
 

@@ -120,10 +120,10 @@ public class Menucard {
         System.out.println("**************** PIZZA ****************");
 
         for (Pizza pizza : menuCard) {
-            System.out.print(pizza.nr + ". ");
-            System.out.print(pizza.navn + ": ");
-            System.out.print(pizza.ingredienser + " ...... ");
-            System.out.println(pizza.pris + " kr.");
+            System.out.print(pizza.getNr() + ". ");
+            System.out.print(pizza.getNavn() + ": ");
+            System.out.print(pizza.getIngredienser() + " ...... ");
+            System.out.println(pizza.getPris() + " kr.");
 
 
         }
