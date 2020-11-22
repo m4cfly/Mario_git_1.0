@@ -114,6 +114,14 @@ public class Menucard {
 
         }
     }
+    public void newPizza(){
+        Pizza pizza = new Pizza();
+        pizza.setNavn(Input.getString("Pizza Navn: "));
+        pizza.setNr(Input.getInt("Pizza Nr: "));
+        pizza.setIngredienser(Input.getString("hvilke ingredienser: "));
+        pizza.setPris(Input.getInt("Pris: "));
+        menuCard.add(pizza);
+    }
     // VIS MENU
     public void showMenuCard(){
         System.out.println("***************************************");

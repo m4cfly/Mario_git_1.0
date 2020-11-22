@@ -1,20 +1,7 @@
 START
 NR
-1
 NAVN
-Vesuvio
 INGREDIENSER
-Ost og tomat
 PRIS
-57
-END
-START
-NR
-2
-NAVN
-lasagne
-INGREDIENSER
-Ost og tomat
-PRIS
-57
+1233
 END

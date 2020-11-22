@@ -16,6 +16,7 @@ public class Main {
         while (execute) {
             System.out.println("           Vis Menukort      [1]    ");
             System.out.println("           Indtast ordre     [2]    ");
+            System.out.println("           Indsæt Pizza      [2]    ");
             System.out.println("         Vis bestillinger    [3]    ");
             System.out.println("         Fjern bestilling    [4]    ");
             System.out.println("             Gem Ordre       [5]    ");
@@ -26,7 +27,7 @@ public class Main {
             int choose = scanNavn.nextInt();
 
 
-            //switch
+            //switch Menu
             switch (choose) {
                 case 1:
                     try{
@@ -54,6 +55,7 @@ public class Main {
                         System.out.println("Fejl i indskrivningen, prøv igen");
 
                     }
+
                     //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
                     //Pizza gringo = new Pizza(3, "Gringo", "Ost og Tomat bøf", 100);
                     //menuCard.savePizzaToFile("Bestilling.txt");
@@ -65,7 +67,9 @@ public class Main {
 //                    System.out.println(o1.toString());
                     break;
                 case 3:
-                    orderList.showOrders();
+                    menuCard.newPizza();
+                    menuCard.savePizzaToFile("menucard.txt");
+                    //orderList.showOrders();
                     break;
                 case 4:
                     System.out.println("Fjern Ordre");
