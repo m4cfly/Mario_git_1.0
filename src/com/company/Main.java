@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private final static boolean execute = true;
+    private static boolean execute = true;
     public static void main(String[] args) throws IOException {
 
         Menucard menuCard = new Menucard();
@@ -18,7 +18,8 @@ public class Main {
             System.out.println("           Indtast ordre     [2]    ");
             System.out.println("         Vis bestillinger    [3]    ");
             System.out.println("         Fjern bestilling    [4]    ");
-            System.out.println("            Gem Ordre        [5]    ");
+            System.out.println("             Gem Ordre       [5]    ");
+            System.out.println("           Quit  /  EXIT     [5]    ");
 
 
             Scanner scanNavn = new Scanner(System.in);
@@ -75,6 +76,7 @@ public class Main {
 
                 default:
                     System.out.println("QUIT: Farvel");
+                    boolean execute = false;
                     return;
             }
 
