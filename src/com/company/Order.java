@@ -1,7 +1,7 @@
 package com.company;
 import java.util.Date;
 
-public class Order {
+public class Order implements Comparable<Order> {
 
     private int pizzaNo;
     private int price;
@@ -82,5 +82,10 @@ public class Order {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        return this.pickupTime - o.getPickupTime();
     }
 }

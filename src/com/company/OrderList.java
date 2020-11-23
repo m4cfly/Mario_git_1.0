@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class OrderList {
@@ -21,21 +22,26 @@ public class OrderList {
 
     public void addOrder(Order order){
         orderList.add(order);
+        Collections.sort(orderList);
+    }
+    public void sortOrderList(){
+        Collections.sort(orderList);
     }
 
     public int getTotalNumberOfOrders(){
         return orderList.size();
     }
-    public void showOrders() {
+    public void showOrders(Menucard menuCard) {
         for (Order order : orderList) {
             System.out.println(order.getPizzaNo() + ", " +
-                    order.getAmount() + ", " +
+                    "Antal: " + order.getAmount() + ", " +
                     //order.getPrice() + ", " +
                     Input.getMinutesToTimeFormat(order.getPickupTime()) + ", " +
                     order.getOrderTime() + ", " +
-                    order.getCustomerName() + ", "
-                   // order.getPhoneNo() + ", " +
-                    // order.getStatus()
+                    order.getCustomerName() + ", " +
+                    order.getPhone() + ", " +
+                    //order.getStatus()
+                    order.getAmount()* menuCard.getPizzaPriceByNumber(order.getPizzaNo())
             );
         }
     }

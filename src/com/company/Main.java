@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.*;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +11,7 @@ public class Main {
 
         Menucard menuCard = new Menucard();
         OrderList orderList = new OrderList();
+        menuCard.readPizzasFromFile("menucard.txt");
 
 
         while (execute) {
@@ -29,14 +31,6 @@ public class Main {
             //Switch Menu
             switch (choose) {
                 case 1:
-                    try{
-                    // vis menu
-                    menuCard.readPizzasFromFile("menucard.txt");
-
-                    }catch (Exception e){
-                        System.out.println("Menukort kunne ikke findes.");
-                    }
-
                     menuCard.showMenuCard();
                     break;
 
@@ -51,6 +45,7 @@ public class Main {
                                 Input.getString("Hvad dælen hedder? du din gavtyv?: "),
                                 Input.getString("Telefon Nummer Lord hr sir.?: ")
                         ));
+                        orderList.sortOrderList();
                     }catch (Exception e){
                         System.out.println("Fejl i indskrivningen, prøv igen");
 
@@ -68,12 +63,15 @@ public class Main {
                     break;
                     // Tilføj Pizza
                 case 3:
+
                     menuCard.newPizza();
                     menuCard.savePizzaToFile("menucard.txt");
-                    //orderList.showOrders();
+
                     break;
                 case 4:
                     System.out.println("Vis Bestillinger");
+                    orderList.showOrders(menuCard);
+                    //orderList.sortOrderList();
                     break;
                 case 5:
                     System.out.println("Fjern Bestilling");

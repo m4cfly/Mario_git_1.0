@@ -31,8 +31,11 @@ public class Menucard {
             for(Pizza pizza : menuCard){
                 writer.println(START);
                 writer.println(NR);
+                writer.println(pizza.getNr());
                 writer.println(NAVN);
+                writer.println(pizza.getNavn());
                 writer.println(INGREDIENSER);
+                writer.println(pizza.getIngredienser());
                 writer.println(PRIS);
                 writer.println(pizza.getPris());
                 writer.println(END);
@@ -138,5 +141,14 @@ public class Menucard {
 
 
 
+    }
+
+    public int getPizzaPriceByNumber(int nr){
+        for (Pizza pizza : menuCard) {
+            if (pizza.getNr()==nr){
+                return pizza.getPris();
+            }
+        }
+        return 0;
     }
 }
