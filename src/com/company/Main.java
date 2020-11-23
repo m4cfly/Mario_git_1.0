@@ -1,5 +1,4 @@
 package com.company;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.io.*;
 import java.util.Scanner;
@@ -16,18 +15,18 @@ public class Main {
         while (execute) {
             System.out.println("           Vis Menukort      [1]    ");
             System.out.println("           Indtast ordre     [2]    ");
-            System.out.println("           Indsæt Pizza      [2]    ");
-            System.out.println("         Vis bestillinger    [3]    ");
-            System.out.println("         Fjern bestilling    [4]    ");
-            System.out.println("             Gem Ordre       [5]    ");
-            System.out.println("           Quit  /  EXIT     [5]    ");
+            System.out.println("           Indsæt Pizza      [3]    ");
+            System.out.println("         Vis bestillinger    [4]    ");
+            System.out.println("         Fjern bestilling    [5]    ");
+            System.out.println("             Gem Ordre       [6]    ");
+            System.out.println("           Quit  /  EXIT     [7]    ");
 
 
             Scanner scanNavn = new Scanner(System.in);
             int choose = scanNavn.nextInt();
 
 
-            //switch Menu
+            //Switch Menu
             switch (choose) {
                 case 1:
                     try{
@@ -42,7 +41,7 @@ public class Main {
                     break;
 
                 case 2:
-                    // TILFØJ TIL PIZZAER
+                    // Bestil TIL PIZZAER
                     try {
                         orderList.addOrder(new Order(
                                 Input.getInt("Pizza nummer: "),
@@ -50,7 +49,8 @@ public class Main {
                                 Input.getInt("Antal: "),
                                 Input.getTimeInMinutes("Hvornår skal pizzaen hentes ? / tt.mm : "),
                                 Input.getString("Hvad dælen hedder? du din gavtyv?: "),
-                                Input.getString("Telefon Nummer Lord hr sir.?: ")));
+                                Input.getString("Telefon Nummer Lord hr sir.?: ")
+                        ));
                     }catch (Exception e){
                         System.out.println("Fejl i indskrivningen, prøv igen");
 
@@ -66,31 +66,31 @@ public class Main {
 //                    Order o1 = new Order(3, 2, tid, "Jon", "22755844");
 //                    System.out.println(o1.toString());
                     break;
+                    // Tilføj Pizza
                 case 3:
                     menuCard.newPizza();
                     menuCard.savePizzaToFile("menucard.txt");
                     //orderList.showOrders();
                     break;
                 case 4:
-                    System.out.println("Fjern Ordre");
+                    System.out.println("Vis Bestillinger");
                     break;
                 case 5:
+                    System.out.println("Fjern Bestilling");
+                    break;
+                case 6:
                     System.out.println("Gem ordre");
                     break;
-
-                default:
+                case 7:
                     System.out.println("QUIT: Farvel");
                     boolean execute = false;
+
+                default:
                     return;
             }
 
         }
         //Menucard menuCard = new Menucard();
-
-
-
-
-
 
                 // Vis: Program menu
                 // indsæt pizza
