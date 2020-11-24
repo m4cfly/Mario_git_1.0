@@ -33,13 +33,13 @@ public class OrderList {
     }
     public void showOrders(Menucard menuCard) {
         for (Order order : orderList) {
-            System.out.println(order.getPizzaNo() + ", " +
+            System.out.println("Pizza NR: " + order.getPizzaNo() + ", " +
                     "Antal: " + order.getAmount() + ", " +
                     //order.getPrice() + ", " +
-                    Input.getMinutesToTimeFormat(order.getPickupTime()) + ", " +
-                    order.getOrderTime() + ", " +
-                    order.getCustomerName() + ", " +
-                    order.getPhone() + ", " +
+                    "Ordre Afhentnings tid: " + Input.getMinutesToTimeFormat(order.getPickupTime()) + ", " +
+                    "Ordre afgivet: " + order.getOrderTime() + ", " +
+                    "Kunde Navn: " + order.getCustomerName() + ", " +
+                    "Telefon NR: " + order.getPhone() + ", " +
                     //order.getStatus()
                     order.getAmount()* menuCard.getPizzaPriceByNumber(order.getPizzaNo())
             );

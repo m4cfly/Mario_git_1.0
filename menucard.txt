@@ -28,3 +28,13 @@ ost og rabarber
 PRIS
 200
 END
+START
+NR
+4
+NAVN
+chantè
+INGREDIENSER
+ost chili, tomat, skinke
+PRIS
+85
+END

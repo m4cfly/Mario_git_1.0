@@ -15,13 +15,18 @@ public class Main {
 
 
         while (execute) {
-            System.out.println("           Vis Menukort      [1]    ");
-            System.out.println("           Indtast ordre     [2]    ");
-            System.out.println("           Indsæt Pizza      [3]    ");
-            System.out.println("         Vis bestillinger    [4]    ");
-            System.out.println("         Fjern bestilling    [5]    ");
-            System.out.println("             Gem Ordre       [6]    ");
-            System.out.println("           Quit  /  EXIT     [7]    ");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+
+            System.out.print(" Vis Menukort   [1] | ");
+            System.out.print(" Indsæt Pizza   [2] | ");
+            System.out.print(" Indtast ordre   [3] | ");
+            System.out.print(" Vis bestillinger   [4] | ");
+            System.out.print(" Fjern bestilling   [5] | ");
+            System.out.print(" Gem Ordre   [6] | ");
+            System.out.print(" Quit/EXIT   [7]  ");
+
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
             Scanner scanNavn = new Scanner(System.in);
@@ -35,6 +40,11 @@ public class Main {
                     break;
 
                 case 2:
+                    menuCard.newPizza();
+                    menuCard.savePizzaToFile("menucard.txt");
+                    break;
+                    // Tilføj Pizza
+                case 3:
                     // Bestil TIL PIZZAER
                     try {
                         orderList.addOrder(new Order(
@@ -60,13 +70,6 @@ public class Main {
 //                    int tid = Input.getTimeInMinutes("Afhentingstid: ");
 //                    Order o1 = new Order(3, 2, tid, "Jon", "22755844");
 //                    System.out.println(o1.toString());
-                    break;
-                    // Tilføj Pizza
-                case 3:
-
-                    menuCard.newPizza();
-                    menuCard.savePizzaToFile("menucard.txt");
-
                     break;
                 case 4:
                     System.out.println("Vis Bestillinger");
